@@ -1,51 +1,56 @@
 # PEP 8 Python Style Guide Summary
 
-This document summarizes key conventions from [PEP 8](https://peps.python.org/pep-0008/), the official Python style guide. Following these practices improves code readability and consistency.
+## 1. Indentation
+
+- Use **4 spaces** per indentation level.
+- Do not use tabs.
+
+```python
+def greet(name):
+    print(f"Hello, {name}")
+```
 
 ---
 
-## 1. Indentation
+## 2. Maximum Line Length
 
-- Use 4 spaces per indentation level.
+- Limit all lines to **79 characters**.
+- Use implicit line continuation inside parentheses for long lines.
 
 ```python
-def say_hello():
-    name = "Alice"
-    print(f"Hello, {name}")
-
-
-⸻
-
-2. Maximum Line Length
-	•	Limit all lines to a maximum of 79 characters.
-
 # Good
-message = "This is a short and readable message."
+message = (
+    "This is a long message that should be wrapped "
+    "within 79 characters."
+)
+```
 
-# Bad
-message = "This is a very long message that goes beyond the recommended line length of 79 characters."
+---
 
+## 3. Imports
 
-⸻
+- Use one import per line.
+- Follow this import order:
+  1. Standard library
+  2. Third-party packages
+  3. Local application imports
 
-3. Imports
-	•	Imports should be on separate lines.
-	•	Order: standard libraries → third-party libraries → local imports.
-
+```python
 # Good
 import os
 import sys
 
 # Bad
 import os, sys
+```
 
+---
 
-⸻
+## 4. Whitespace in Expressions and Statements
 
-4. Whitespace Rules
+### Around Operators
 
-Around Operators
-
+```python
 # Good
 x = 1
 y = x + 2
@@ -53,81 +58,88 @@ y = x + 2
 # Bad
 x=1
 y = x  +2
+```
 
-Inside Function Calls and Definitions
+### Inside Parentheses, Brackets, Braces
 
+```python
 # Good
-print(len(my_list))
+print(len(items))
 
 # Bad
-print ( len( my_list ) )
+print ( len( items ) )
+```
 
-After Commas (Not Before)
+### After Commas, Colons, and Semicolons
 
+```python
 # Good
-numbers = [1, 2, 3]
+data = [1, 2, 3]
 
 # Bad
-numbers = [1 ,2 , 3 ]
+data = [1 ,2 , 3 ]
+```
 
+---
 
-⸻
+## 5. Naming Conventions
 
-5. Naming Conventions
+| Element              | Convention     | Example           |
+|----------------------|----------------|--------------------|
+| Variable / Function  | `snake_case`   | `calculate_sum()`  |
+| Constant             | `UPPER_CASE`   | `MAX_RETRIES`      |
+| Class                | `CamelCase`    | `DataProcessor`    |
+| Module / Package     | `lowercase`    | `utils`, `config`  |
 
-Category	Convention	Example
-Variables, Functions	snake_case	total_count
-Constants	UPPER_CASE	MAX_SIZE
-Classes	CamelCase	DataParser
-Modules, Packages	lowercase	parser, config
+---
 
+## 6. Comments and Docstrings
 
-⸻
+- Use comments to explain **why**, not what.
+- Use complete sentences and proper grammar.
+- Use triple double quotes (`"""`) for **docstrings**.
 
-6. Comments and Docstrings
-	•	Use # for inline and block comments.
-	•	Use complete sentences.
-	•	Use triple quotes """ """ for docstrings.
+```python
+# This function calculates tax-included total
+def calculate_total(price, tax_rate):
+    """Return the price including tax."""
+    return price + (price * tax_rate)
+```
 
-# Calculate the total cost
-def calculate_total(price, tax):
-    """Calculate total price including tax."""
-    return price + (price * tax)
+---
 
+## 7. Blank Lines
 
-⸻
+- Use **2 blank lines** before top-level function or class definitions.
+- Use **1 blank line** between methods inside a class.
 
-7. Blank Lines
-	•	Use 2 blank lines before top-level functions or class definitions.
-	•	Use 1 blank line between methods inside a class.
-
-⸻
-
-8. Miscellaneous Rules
-	•	Avoid trailing whitespace.
-	•	End each file with a single newline.
-	•	Use UTF-8 encoding (default in Python 3).
-	•	Use is / is not for comparisons with None.
-
+```python
 # Good
-if user_input is None:
+
+def first_function():
+    pass
+
+
+def second_function():
+    pass
+```
+
+---
+
+## 8. Other Best Practices
+
+- Avoid trailing whitespace.
+- End each file with a single newline.
+- Use `is` / `is not` to compare with `None`.
+
+```python
+# Good
+if value is None:
     return
 
 # Bad
-if user_input == None:
+if value == None:
     return
+```
 
-
-⸻
-
-Tools for Style Checking
-
-Use these tools to check and auto-format your code:
-	•	flake8
-	•	black
-	•	pylint
-
-⸻
-
-Reference
-	•	PEP 8 – Style Guide for Python Code
+---
