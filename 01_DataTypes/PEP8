@@ -1,0 +1,133 @@
+# PEP 8 Python Style Guide Summary
+
+This document summarizes key conventions from [PEP 8](https://peps.python.org/pep-0008/), the official Python style guide. Following these practices improves code readability and consistency.
+
+---
+
+## 1. Indentation
+
+- Use 4 spaces per indentation level.
+
+```python
+def say_hello():
+    name = "Alice"
+    print(f"Hello, {name}")
+
+
+⸻
+
+2. Maximum Line Length
+	•	Limit all lines to a maximum of 79 characters.
+
+# Good
+message = "This is a short and readable message."
+
+# Bad
+message = "This is a very long message that goes beyond the recommended line length of 79 characters."
+
+
+⸻
+
+3. Imports
+	•	Imports should be on separate lines.
+	•	Order: standard libraries → third-party libraries → local imports.
+
+# Good
+import os
+import sys
+
+# Bad
+import os, sys
+
+
+⸻
+
+4. Whitespace Rules
+
+Around Operators
+
+# Good
+x = 1
+y = x + 2
+
+# Bad
+x=1
+y = x  +2
+
+Inside Function Calls and Definitions
+
+# Good
+print(len(my_list))
+
+# Bad
+print ( len( my_list ) )
+
+After Commas (Not Before)
+
+# Good
+numbers = [1, 2, 3]
+
+# Bad
+numbers = [1 ,2 , 3 ]
+
+
+⸻
+
+5. Naming Conventions
+
+Category	Convention	Example
+Variables, Functions	snake_case	total_count
+Constants	UPPER_CASE	MAX_SIZE
+Classes	CamelCase	DataParser
+Modules, Packages	lowercase	parser, config
+
+
+⸻
+
+6. Comments and Docstrings
+	•	Use # for inline and block comments.
+	•	Use complete sentences.
+	•	Use triple quotes """ """ for docstrings.
+
+# Calculate the total cost
+def calculate_total(price, tax):
+    """Calculate total price including tax."""
+    return price + (price * tax)
+
+
+⸻
+
+7. Blank Lines
+	•	Use 2 blank lines before top-level functions or class definitions.
+	•	Use 1 blank line between methods inside a class.
+
+⸻
+
+8. Miscellaneous Rules
+	•	Avoid trailing whitespace.
+	•	End each file with a single newline.
+	•	Use UTF-8 encoding (default in Python 3).
+	•	Use is / is not for comparisons with None.
+
+# Good
+if user_input is None:
+    return
+
+# Bad
+if user_input == None:
+    return
+
+
+⸻
+
+Tools for Style Checking
+
+Use these tools to check and auto-format your code:
+	•	flake8
+	•	black
+	•	pylint
+
+⸻
+
+Reference
+	•	PEP 8 – Style Guide for Python Code
